@@ -20,14 +20,14 @@
             android:inputType="text"
              />
 
-        <TextView
-            android:id="@+id/tvResult"
-            android:fontFamily="@font/dsdigi"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="right|center_vertical"
-            android:text="0"
-            android:textSize="20sp" />
+<!--        <TextView-->
+<!--            android:id="@+id/tvResult"-->
+<!--            android:fontFamily="@font/dsdigi"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:gravity="right|center_vertical"-->
+<!--            android:text="0"-->
+<!--            android:textSize="20sp" />-->
 
     </LinearLayout>
 

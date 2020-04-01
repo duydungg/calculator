@@ -8,9 +8,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity {
     private EditText edtInput;
-    private TextView tvResult;
+    //    private TextView tvResult;
     private Button btn1;
     private Button btn2;
     private Button btn3;
@@ -31,17 +31,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button btnC;
     private Button btnCE;
     private Button btnBS;
+    Float Res1, Res2;
+    Boolean Add, Sub, Mul, Div;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        initWidget();
-        setEventClickViews();
-    }
-
-    public void initWidget(){
         edtInput = (EditText) findViewById(R.id.edtInput);
-        tvResult = (TextView) findViewById(R.id.tvResult);
+//        tvResult = (TextView) findViewById(R.id.tvResult);
 
         btn1 = (Button) findViewById(R.id.btn1);
         btn2 = (Button) findViewById(R.id.btn2);
@@ -63,96 +61,165 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnDot = (Button) findViewById(R.id.btnDot);
         btnDao = (Button) findViewById(R.id.btnDao);
         btnResult = (Button) findViewById(R.id.btnResult);
-    }
-    public void setEventClickViews(){
-        btn1.setOnClickListener(this);
-        btn2.setOnClickListener(this);
-        btn3.setOnClickListener(this);
-        btn4.setOnClickListener(this);
-        btn5.setOnClickListener(this);
-        btn6.setOnClickListener(this);
-        btn7.setOnClickListener(this);
-        btn8.setOnClickListener(this);
-        btn9.setOnClickListener(this);
-        btn0.setOnClickListener(this);
 
-        btnPlus.setOnClickListener(this);
-        btnMul.setOnClickListener(this);
-        btnDiv.setOnClickListener(this);
-        btnSub.setOnClickListener(this);
-
-        btnC.setOnClickListener(this);
-        btnCE.setOnClickListener(this);
-        btnBS.setOnClickListener(this);
-        btnResult.setOnClickListener(this);
-
-    }
-
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.btn1:
-                edtInput.append("1");
-                break;
-            case R.id.btn2:
-                edtInput.append("2");
-                break;
-            case R.id.btn3:
-                edtInput.append("3");
-                break;
-            case R.id.btn4:
-                edtInput.append("4");
-                break;
-            case R.id.btn5:
-                edtInput.append("5");
-                break;
-            case R.id.btn6:
-                edtInput.append("6");
-                break;
-            case R.id.btn7:
-                edtInput.append("7");
-                break;
-            case R.id.btn8:
-                edtInput.append("8");
-                break;
-            case R.id.btn9:
-                edtInput.append("9");
-                break;
-            case R.id.btn0:
-                edtInput.append("0");
-                break;
-            case R.id.btnSub:
-                edtInput.append("-");
-                break;
-            case R.id.btnPlus:
-                edtInput.append("+");
-                break;
-            case R.id.btnMul:
-                edtInput.append("*");
-                break;
-            case R.id.btnDiv:
-                edtInput.append("/");
-                break;
-            case R.id.btnC:
+        btn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                edtInput.setText(edtInput.getText()+"1");
+            }
+        });
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                edtInput.setText(edtInput.getText()+"2");
+            }
+        });
+        btn3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                edtInput.setText(edtInput.getText()+"3");
+            }
+        });
+        btn4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                edtInput.setText(edtInput.getText()+"4");
+            }
+        });
+        btn5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                edtInput.setText(edtInput.getText()+"5");
+            }
+        });
+        btn6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                edtInput.setText(edtInput.getText()+"6");
+            }
+        });
+        btn7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                edtInput.setText(edtInput.getText()+"7");
+            }
+        });
+        btn8.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                edtInput.setText(edtInput.getText()+"8");
+            }
+        });
+        btn9.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                edtInput.setText(edtInput.getText()+"9");
+            }
+        });
+        btn0.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                edtInput.setText(edtInput.getText()+"0");
+            }
+        });
+        btnDot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                edtInput.setText(edtInput.getText()+".");
+            }
+        });
+        btnC.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 edtInput.setText("");
-                break;
-            case R.id.btnDot:
-                edtInput.append(".");
-                break;
-            case R.id.btnCE:
+            }
+        });
+        btnCE.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 String numberAfterRemove = deleteANumber(edtInput.getText().toString());
                 edtInput.setText(numberAfterRemove);
-                break;
-            case R.id.btnResult:
+            }
+        });
+        btnPlus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(edtInput==null) {
+                    edtInput.setText("");
+                }
+                else {
+                    Res1 = Float.parseFloat(edtInput.getText()+ "");
+                    Add=true;
+                    edtInput.setText(null);
+                }
+            }
+        });
+        btnSub.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(edtInput==null) {
+                    edtInput.setText("");
+                }
+                else {
+                    Res1 = Float.parseFloat(edtInput.getText()+ "");
+                    Sub=true;
+                    edtInput.setText(null);
+                }
+            }
+        });
+        btnDiv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(edtInput==null) {
+                    edtInput.setText("");
+                }
+                else {
+                    Res1 = Float.parseFloat(edtInput.getText()+ "");
+                    Div=true;
+                    edtInput.setText(null);
+                }
+            }
+        });
+        btnMul.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(edtInput==null) {
+                    edtInput.setText("");
+                }
+                else {
+                    Res1 = Float.parseFloat(edtInput.getText()+ "");
+                    Mul=true;
+                    edtInput.setText(null);
+                }
+            }
+        });
+        btnResult.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Res2=Float.parseFloat(edtInput.getText()+"");
+                if (Add=true){
+                    edtInput.setText(Res1+Res2+"");
+                    Add=false;
+                }
+                if (Mul=true){
+                    edtInput.setText(Res1*Res2+"");
+                    Mul=false;
+                }
+                if (Div=true){
+                    edtInput.setText(Res1/Res2+"");
+                    Div=false;
+                }
+                if (Sub=true){
+                    edtInput.setText(Res1-Res2+"");
+                    Sub=false;
+                }
+            }
+        });
 
-                break;
-        }
     }
-
     public String deleteANumber(String number) {
         int length = number.length();
         String temp = number.substring(0, length -1);
         return temp;
     }
 }
-
