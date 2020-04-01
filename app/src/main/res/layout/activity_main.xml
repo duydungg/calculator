@@ -11,31 +11,30 @@
         android:orientation="vertical"
         android:padding="8dp">
 
-        <TextView
+        <EditText
             android:fontFamily="@font/dsdigi"
-            android:id="@+id/tvMath"
+            android:id="@+id/edtInput"
             android:layout_width="match_parent"
-            android:layout_height="116dp"
+            android:layout_height="wrap_content"
             android:gravity="right|center_vertical"
-            android:minHeight="48dp"
-            android:text="0"
-            android:textSize="36sp" />
+            android:inputType="text"
+             />
 
         <TextView
             android:id="@+id/tvResult"
             android:fontFamily="@font/dsdigi"
             android:layout_width="match_parent"
-            android:layout_height="112dp"
+            android:layout_height="wrap_content"
             android:gravity="right|center_vertical"
-            android:minHeight="48dp"
             android:text="0"
-            android:textSize="36sp" />
+            android:textSize="20sp" />
 
     </LinearLayout>
 
     <LinearLayout
+
         android:layout_width="match_parent"
-        android:layout_height="94dp"
+        android:layout_height="50dp"
         android:orientation="horizontal">
 
         <Button
@@ -69,14 +68,14 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="94dp"
+        android:layout_height="50dp"
         android:orientation="horizontal">
 
         <Button
-            android:backgroundTint="@color/white"
             android:id="@+id/btn7"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:backgroundTint="@color/white"
             android:text="7"
             android:textSize="20sp" />
 
@@ -106,7 +105,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="94dp"
+        android:layout_height="50dp"
         android:orientation="horizontal">
 
         <Button
@@ -143,7 +142,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="94dp"
+        android:layout_height="50dp"
         android:orientation="horizontal">
 
         <Button
@@ -180,11 +179,11 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="94dp"
+        android:layout_height="50dp"
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/btndao"
+            android:id="@+id/btnDao"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="+/-"
